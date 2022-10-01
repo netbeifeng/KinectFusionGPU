@@ -17,21 +17,21 @@ This implementation also follows the original paper to divide the full process i
   
 ![Pipleline in paper](img/Pipeline_Paper.png)
 
-### SurfaceMeasurement
+### SurfaceMeasurement (SM)
 In this phase, we will get the RGB frame as well as the depth frame from dataset. ~~A pyramid mipmap will be set up based on the frame pair.~~(still not implmented) The vertex map and normal map will be computed on every pyramid level. 
 
-### PoseEstimation 
+### PoseEstimation (PE)
 We can get last frame by reading the frame generated from last SurfacePrediction. Also vertex map and normal map will be calculated for the last frame.
 With the VN-map of last frame and current frame all given, we can perform the ICP algorithm to find a pose whihc aligns two point cloud best.
 
-### SurfaceReconstruction 
+### SurfaceReconstruction (SR)
 As the pose is now available, we can use the pose to integrate the current frame into the global TSDF. Hence the depth and colour information will be fused into global TSDF with respectively weight.
 
-### SurfacePrediction
+### SurfacePrediction (SP)
 A ray will be casted into the global TSDF to retrieve the RGB frame and the depth frame, and save them for next step PoseEstimation.
 
 ## Result
- |  |   SurfaceMeasurement   |  PoseEstimation  |  SurfaceReconstruction |  SurfacePrediction  | Sum |
+ |  |   SM   |  PE  |  SR |  SP  | Sum |
  | :----: | :-----: | :-----: | :-----: | :-----: |:-----: |
  | Time for one frame (miliseconds) | 2.1123 | ~~0.0013~~ | 0.0153 | 3.5453 | 5.6729 |
 
@@ -89,12 +89,6 @@ After installing these two libraries, you should be able to build the project by
     - [Reference Repo3](https://github.com/chrdiller/KinectFusionLib)
 - [x] ~~Implementation of SurfaceReconstructor (TSDF Integration)~~
 - [x] ~~Implementation of SurfacePredictor (RayCasting)~~
-
-## Result
-
-
-....
-To be done.
 
 ## Project Strcture
 The project folder should look like as following.
