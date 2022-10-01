@@ -1,0 +1,19 @@
+#define VERBOSE_LOG 0
+#define FRAME_WIDTH 640
+#define FRAME_HEIGHT 480
+#define DIST_THRES 10.f
+#define ANGLE_THRES 0.006092310f // sin(20*pi/180)
+#define VOLUME_LENGTH 3.0f
+#define VOLUME_GRID_RESOLUTION 256
+#define VOXEL_UNIT_LENGTH (VOLUME_LENGTH/VOLUME_GRID_RESOLUTION)
+
+#define CX  318.6f
+#define CY  255.3f 
+#define FX  517.3f
+#define FY  516.5f
+
+#define TRUNC_DIST 0.04f
+#define DENOISE_DIST 0.05f
+
+#define NEAR_DIST 0.001f
+#define FAR_DIST 10.f
