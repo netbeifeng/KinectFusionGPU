@@ -193,10 +193,6 @@ public:
 		clEnqueueWriteBuffer(m_queue, m_deviceBuffer, CL_TRUE, 0, sizeof(float) * m_bufferSize, m_hostBuffer, 0, NULL, NULL);
 	}
 
-	void fillHost(float value) {
-		std::fill_n(m_hostBuffer, m_bufferSize, value);
-	}
-
 	cl_mem& getDeviceBuffer() {
 		return m_deviceBuffer;
 	}
